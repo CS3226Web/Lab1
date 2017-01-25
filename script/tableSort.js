@@ -1,4 +1,4 @@
-var table = $('#tableRank').DataTable({
+var table = $('#ranktable').DataTable({
   "bPaginate": false,
   "bAutoWidth": false,
   "bFilter": false,
@@ -6,12 +6,6 @@ var table = $('#tableRank').DataTable({
   "aaSorting": [[12, 'desc']],
   "columnDefs": [{
     "targets": [0],
-    "orderable": false,
+    "orderable": false, //Disable ordering of first collumn
   }]
-});
-
-$('#tableRank thead th').on('click', function() {
-  $('tbody tr').each(function(index) {
-    $(this).css('height', '31' + "px");
-  });
 });
