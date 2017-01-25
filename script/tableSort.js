@@ -1,4 +1,4 @@
-var table = $('#ranktable').DataTable({
+var table = $('#tableRank').DataTable({
   "bPaginate": false,
   "bAutoWidth": false,
   "bFilter": false,
@@ -10,7 +10,7 @@ var table = $('#ranktable').DataTable({
   }]
 });
 
-$('#ranktable thead th').on('click', function() {
+$('#tableRank thead th').on('click', function() {
   $('tbody tr').each(function(index) {
     $(this).css('height', '31' + "px");
   });
