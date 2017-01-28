@@ -6,6 +6,6 @@ $('#ranktable tbody tr').each(function(){
     curScore = parseFloat(curScore);
     var gap = oldScore - curScore;
     oldScore = curScore;
-    var newHeight = 30 + 100 * gap;
+    var newHeight = 30 + 30 * gap;
     $(this).closest("tr").css('height', newHeight);
 })
