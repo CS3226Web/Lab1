@@ -5,7 +5,7 @@ var cell;
 cellArr.fill(0);
 rowNum.fill([]);
 for (var i = 0; i < rows; i++) {
-	for (var j = 4; j < 12; j++) {
+	for (var j = 4; j < 13; j++) {
 		cell = $('#ranktable tbody tr:eq(' + i + ') td').eq(j);
 		if (Number(cell.html()) > cellArr[j - 4]) {
 			cellArr[j - 4] = Number(cell.html());
