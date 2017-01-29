@@ -7,7 +7,6 @@ for (var i =4; i <= 12; i++) {
       var curScore = currentRow.find('td:eq('+i+')').text();
       curScore = parseFloat(curScore);
       if (curScore > curMax) curMax = curScore;
-	alert (curMax);
   });
 
 //Fill in max cells
