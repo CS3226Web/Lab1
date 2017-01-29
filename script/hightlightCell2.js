@@ -1,4 +1,4 @@
-for (var i =4; i <= 12; i++) {
+for (var i =4; i < 12; i++) {
 	curMax = $("#ranktable tbody").find("tr:first").find('td:eq('+i+')').text();
 	curMax = parseFloat(curMax);
 //find max value
