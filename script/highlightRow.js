@@ -8,7 +8,6 @@ var rowlast = [];
 for (var i = 0; i < rows; i++) {
 	cell = $('#ranktable tbody tr:eq(' + i + ') td').eq(12);
 	if (Number(cell.html()) >= first) {
-		console.log(Number(cell.html())+">"+first);
 		if (Number(cell.html()) > first) {
 			row1 = [];
 			row1.push(i);
