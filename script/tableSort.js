@@ -1,4 +1,19 @@
+// ranktable starts off sorted in descending order of sum
+var wasPreviouslySumDescSorted = true;
+
 var table = $('#ranktable').DataTable({
+  "fnDrawCallback": function(oSettings) {
+    var sortProperties = oSettings.aaSorting[0];
+    if (sortProperties[0] === 12 && sortProperties[1] === "desc") {
+      setRowHeightAccordingToSum();
+      wasPreviouslySumDescSorted = true;
+    } else if (wasPreviouslySumDescSorted) {
+      // if we sorted according sum in desc order previously and
+      // now arrange according other cols, we need to reset row height
+      resetRowHeight();
+      wasPreviouslySumDescSorted = false;
+    }
+  },
   "bPaginate": false,
   "bAutoWidth": false,
   "bFilter": false,
@@ -10,9 +25,22 @@ var table = $('#ranktable').DataTable({
   }]
 });
 
-//Readjust row height on thead click
-$('#ranktable thead th').on('click', function(){
-	$('tbody tr').each(function(index) {
-		$(this).css('height', 31);
-	});
-});
+function setRowHeightAccordingToSum() {
+  $('#ranktable tbody tr').not(':last').each(function(){
+      var currentRow = $(this);
+      var currScore = parseFloat(currentRow.find("td:eq(12)").text());
+
+      var nextRow = currentRow.next("tr");
+      var nextScore = parseFloat(nextRow.find("td:eq(12)").text());
+
+      var difference = currScore - nextScore;
+      var newHeight = 30 + 30 * difference;
+      nextRow.css('height', newHeight);
+  });
+}
+
+function resetRowHeight() {
+  $('#ranktable tbody tr').each(function(){
+      $(this).css('height', 30);
+  });
+}
