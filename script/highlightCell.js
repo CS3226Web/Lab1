@@ -2,17 +2,18 @@ var rows = $('#ranktable tbody tr').length;
 var cellArr = new Array(9); //store highest
 var rowNum = new Array(9); //store row num of highest cell
 var cell;
-cellArr.fill([]);
+cellArr.fill(0);
+rowNum.fill([]);
 for (var i = 0; i < rows; i++) {
 	for (var j = 4; j < 13; j++) {
 		cell = $('#ranktable tbody tr:eq(' + i + ') td').eq(j);
-		if (cell.html() > cellArr[j - 4]) {
-			cellArr[j - 4] = cell.html();
+		if (Number(cell.html()) > cellArr[j - 4]) {
+			cellArr[j - 4] = Number(cell.html());
 			rowNum[j - 4] = [];
 			rowNum[j - 4].push(i);
 		}
-		else if (cell.html() == cellArr[j - 4]) {
-			cellArr[j - 4] = cell.html();
+		else if (Number(cell.html()) == cellArr[j - 4]) {
+			cellArr[j - 4] = Number(cell.html());
 			rowNum[j - 4].push(i);
 		}
 		else {

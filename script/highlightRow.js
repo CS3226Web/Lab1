@@ -7,45 +7,46 @@ var row3 = [];
 var rowlast = [];
 for (var i = 0; i < rows; i++) {
 	cell = $('#ranktable tbody tr:eq(' + i + ') td').eq(12);
-	if (cell.html() >= first) {
-		if (cell.html() != first) {
+	if (Number(cell.html()) >= first) {
+		console.log(Number(cell.html())+">"+first);
+		if (Number(cell.html()) > first) {
 			row1 = [];
 			row1.push(i);
 		}
 		else {
 			row1.push(i);
 		}
-		first = cell.html();
+		first = Number(cell.html());
 	}
-	else if (cell.html() >= second) {
-		if (cell.html() != second) {
+	else if (Number(cell.html()) >= second) {
+		if (Number(cell.html()) > second) {
 			row2 = [];
 			row2.push(i);
 		}
 		else {
 			row2.push(i);
 		}
-		second = cell.html();
+		second = Number(cell.html());
 	}
-	else if (cell.html() >= third) {
-		if (cell.html() != third) {
+	else if (Number(cell.html()) >= third) {
+		if (Number(cell.html()) > third) {
 			row3 = [];
 			row3.push(i);
 		}
 		else {
 			row3.push(i);
 		}
-		third = cell.html();
+		third = Number(cell.html());
 	}
-	else if (cell.html() <= last) {
-		if (cell.html() != last) {
+	else if (Number(cell.html()) <= last) {
+		if (Number(cell.html()) < last) {
 			rowlast = [];
 			rowlast.push(i);
 		}
 		else {
 			rowlast.push(i);
 		}
-		last = cell.html();
+		last = Number(cell.html());
 	}
 	else {
 		continue;
