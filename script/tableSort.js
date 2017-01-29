@@ -9,3 +9,10 @@ var table = $('#ranktable').DataTable({
     "orderable": false, //Disable ordering of first collumn
   }]
 });
+
+//Readjust row height on thead click
+$('#ranktable thead th').on('click', function(){
+	$('tbody tr').each(function(index) {
+		$(this).css('height', 31);
+	});
+});
