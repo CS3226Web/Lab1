@@ -1,3 +1,11 @@
+.photo {
+	width: 20px;
+}
+
+.flag {
+	height: 15px;
+}
+
 .borderedimg {
   border:5px solid #FFFFFF;
 }
