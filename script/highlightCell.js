@@ -1,11 +1,11 @@
 var rows = $('#ranktable tbody tr').length;
-var cellArr = new Array(9); //store highest
-var rowNum = new Array(9); //store row num of highest cell
+var cellArr = new Array(8); //store highest
+var rowNum = new Array(8); //store row num of highest cell
 var cell;
 cellArr.fill(0);
 rowNum.fill([]);
 for (var i = 0; i < rows; i++) {
-	for (var j = 4; j < 13; j++) {
+	for (var j = 4; j < 12; j++) {
 		cell = $('#ranktable tbody tr:eq(' + i + ') td').eq(j);
 		if (Number(cell.html()) > cellArr[j - 4]) {
 			cellArr[j - 4] = Number(cell.html());
